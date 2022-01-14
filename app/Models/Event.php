@@ -15,8 +15,16 @@ class Event extends Model
 
     protected $dates = ['date'];
 
+    protected $guarded = [];
+    
+    /* Chama o dono do Evento */
     public function user(){
         return $this->belongsTo('App\Models\User');
+    }
+        
+    /* Chama os participantes do evento */
+    public function users(){
+        return $this->belongsToMany('App\Models\User');
     }
     
 }
